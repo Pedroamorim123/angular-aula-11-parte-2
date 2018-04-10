@@ -6,19 +6,25 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { CadastroClientesComponent } from './cadastro-clientes/cadastro-clientes.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ClienteService } from './services/cliente.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ErrorInterceptor } from './services/interceptor-error';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CadastroClientesComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ClienteService, ErrorInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
